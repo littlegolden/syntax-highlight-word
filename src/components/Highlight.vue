@@ -19,6 +19,7 @@
         />Ctrl + A 复制高亮代码，双击复制纯文本
       </span>
     </div>
+    <p><font-awesome-icon :icon="['fas', 'bug']" /> got problems? <a href="https://github.com/littlegolden/syntax-highlight-word/">report</a></p>
     <script
       type="text/syntaxhighlighter"
       :class="`brush: ${data.lang};`"
@@ -79,6 +80,9 @@ export default {
     .toolbar {
       user-select: none;
     }
+  }
+  > p{
+    user-select: none;
   }
   .options {
     max-width: 810px;
