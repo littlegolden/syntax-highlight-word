@@ -53,18 +53,10 @@ export default {
     return {
       form: {
         code: '',
-        lang: 'javascript'
+        lang: 'html'
       },
       show: {}
     }
-  },
-  methods: {
-    // submit () {
-    //   this.$router.push({
-    //     name: 'Highlight',
-    //     params: this.form
-    //   })
-    // }
   }
 }
 </script>

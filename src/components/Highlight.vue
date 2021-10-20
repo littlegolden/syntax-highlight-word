@@ -2,7 +2,7 @@
   <!-- <pre :class="`brush: ${lang};`" v-text="code"></pre> -->
   <div
     id="result"
-    :class="['container', { selectGunt: selectGunt }]"
+    :class="'container'"
     v-show="data.code"
   >
     <div class="options">
@@ -89,6 +89,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     user-select: none;
+    color: #666;
   }
   .syntaxhighlighter .code .line.alt1 {
     background-color: #f8f8f8 !important;
