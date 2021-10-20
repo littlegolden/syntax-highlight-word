@@ -142,7 +142,8 @@ a:active {
     padding-bottom: 20px;
   }
   main .container .about {
-    max-width: 320px;
+    max-width: 580px;
+    padding: 0 2rem;
     font-size: 12px;
     line-height: 20px;
   }
@@ -152,6 +153,12 @@ a:active {
   #form .container > form > p,
   #main footer{
     padding-top: 2rem;
+  }
+  #form .container > form > p,
+  #form .container > form > .actions,
+  #main #result .options{
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 </style>
