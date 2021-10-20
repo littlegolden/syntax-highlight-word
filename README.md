@@ -1,6 +1,6 @@
 # syntax-highlight-word
 
-> This is a project to revive Syntax Highlight Code App of planetB. Due to it is unavailable on planetB.ca since the year 2020.
+> This is a project to revive [Syntax Highlight Code App of planetB](http://www.planetb.ca/syntax-highlight-word). Due to it is unavailable on planetB.ca since the year 2020.
 
 ## Build Setup
 
