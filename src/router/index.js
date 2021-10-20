@@ -5,6 +5,8 @@ import MainApp from '@/components/MainApp'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  base: 'planetb',
   routes: [
     {
       path: '/',
