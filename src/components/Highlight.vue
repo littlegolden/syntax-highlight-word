@@ -16,7 +16,7 @@
         <font-awesome-icon
           :icon="['fas', 'question-circle']"
           style="margin:0 .5rem"
-        />Ctrl + A 复制高亮代码，双击复制纯文本
+        />Ctrl + A to copy formatted code
       </span>
     </div>
     <p><font-awesome-icon :icon="['fas', 'bug']" /> got problems? <a href="https://github.com/littlegolden/syntax-highlight-word/">report</a></p>
