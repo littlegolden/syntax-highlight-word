@@ -10,15 +10,16 @@
         <font-awesome-icon
           :icon="['fas', 'question-circle']"
           style="margin-right:5px"
-        />press <a href="javascript:void(0)">ctrl + A</a> to select formatted code, <a href="javascript:void(0)">double click</a> for plain text.
+        />press <a href="javascript:void(0)">ctrl + A</a> to select formatted
+        code, <a href="javascript:void(0)">double click</a> for plain text.
       </span>
+      <p>
+        <font-awesome-icon :icon="['fas', 'bug']" /> got problems?
+        <a href="https://github.com/littlegolden/syntax-highlight-word/"
+          >report</a
+        >
+      </p>
     </div>
-    <p>
-      <font-awesome-icon :icon="['fas', 'bug']" /> got problems?
-      <a href="https://github.com/littlegolden/syntax-highlight-word/"
-        >report</a
-      >
-    </p>
     <script
       type="text/syntaxhighlighter"
       :class="`brush: ${data.lang};`"
@@ -41,7 +42,7 @@ export default {
   name: 'Highlight',
   data () {
     return {
-      msg: '',
+      msg: ''
     }
   },
   mounted () {
@@ -92,7 +93,7 @@ export default {
   .syntaxhighlighter .code .line.alt1 {
     background-color: #f8f8f8 !important;
   }
-  .syntaxhighlighter .gutter .line{
+  .syntaxhighlighter .gutter .line {
     border-right: none;
   }
   .code {
@@ -102,7 +103,7 @@ export default {
       line-height: 14px;
     }
   }
-  ol{
+  ol {
     margin: 0;
   }
 }
