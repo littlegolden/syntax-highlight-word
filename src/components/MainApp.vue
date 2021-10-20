@@ -4,7 +4,7 @@
       <div class="container">
         <ul class="item">
           <li class="github"><a href="//github.com/littlegolden/syntax-highlight-word">github</a></li>
-          <li class="mail"><a href="//github.com/littlegolden/syntax-highlight-word">mail</a></li>
+          <li class="mail"><a href="//github.com/littlegolden/syntax-highlight-word/discussions">mail</a></li>
         </ul>
       </div>
     </div>
