@@ -21,7 +21,7 @@
         <div class="about">
           <p>
             This is a fork project to bring back the unavailable one on
-            <a href="planetb.ca">planetb.ca</a> by Jamie.
+            <a href="http://www.planetb.ca/syntax-highlight-word">planetb.ca</a> by Jamie.
           </p>
           <p>
             Placed a form around
@@ -50,7 +50,7 @@
             <span id="busuanzi_value_site_pv"></span> views
           </span>
         </p>
-        <p>Page origin designed by <a href="planetb.ca">Jamie</a></p>
+        <p>Page origin designed by <a href="http://www.planetb.ca">Jamie</a></p>
       </div>
     </footer>
   </div>
