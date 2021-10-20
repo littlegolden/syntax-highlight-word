@@ -50,7 +50,7 @@
             <span id="busuanzi_value_site_pv"></span> views
           </span>
         </p>
-        <p>Page origin designed by <a href="http://www.planetb.ca">Jamie</a></p>
+        <p>Page original designed by <a href="http://www.planetb.ca">Jamie</a></p>
       </div>
     </footer>
   </div>
