@@ -106,14 +106,14 @@ a:active {
   text-decoration: none;
   color: #666666;
 }
-.container {
+:not(ol).container {
   min-width: 768px;
   max-width: 1172px;
   margin-left: auto;
   margin-right: auto;
 }
 @media (max-width: 1200px) {
-  .container {
+  :not(ol).container {
     max-width: 940px;
   }
   main .about {
@@ -124,7 +124,7 @@ a:active {
   #app {
     min-width: unset;
   }
-  .container {
+  :not(ol).container {
     min-width: unset;
     max-width: 724px;
   }
@@ -133,7 +133,7 @@ a:active {
   }
 }
 @media (max-width: 768px) {
-  .container {
+  :not(ol).container {
     /* min-width: unset; */
     max-width: 600px;
   }
