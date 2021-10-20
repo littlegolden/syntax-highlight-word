@@ -6,17 +6,11 @@
     v-show="data.code"
   >
     <div class="options">
-      <input
-        type="checkbox"
-        name="gunt"
-        id="selectGunt"
-        v-model="selectGunt"
-      /><label for="selectGunt">Select Gunt</label>
-      <span style="color:rgb(255, 126, 113)">
+      <span>
         <font-awesome-icon
           :icon="['fas', 'question-circle']"
-          style="margin:0 .5rem"
-        />Ctrl + A to copy formatted code
+          style="margin-right:5px"
+        />press <a href="javascript:void(0)">ctrl + A</a> to select formatted code, <a href="javascript:void(0)">double click</a> for plain text.
       </span>
     </div>
     <p>
@@ -48,7 +42,6 @@ export default {
   data () {
     return {
       msg: '',
-      selectGunt: false
     }
   },
   mounted () {
@@ -106,7 +99,11 @@ export default {
     letter-spacing: initial;
     .line {
       border-left: 3px solid #6ce26c;
+      line-height: 14px;
     }
+  }
+  ol{
+    margin: 0;
   }
 }
 </style>
