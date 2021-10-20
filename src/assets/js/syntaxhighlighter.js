@@ -2681,7 +2681,8 @@ export default function(){
 	
 	    if (lineNumber == 0) classes.push('break');
 	
-	    return '<div class="' + classes.join(' ') + '">' + lineHtml + '</div>';
+		// line wrap 行代码包裹
+	    return '<li class="' + classes.join(' ') + '">' + lineHtml + '</li>';
 	  },
 	
 	  /**
@@ -2837,7 +2838,8 @@ export default function(){
 	    // finally, process the links
 	    if (opts.autoLinks) html = _this.processUrls(html);
 	
-	    html = '\n      <div class="' + classes.join(' ') + '">\n        <table border="0" cellpadding="0" cellspacing="0">\n          ' + _this.getTitleHtml(opts.title) + '\n          <tbody>\n            <tr>\n              ' + (gutter ? '<td class="gutter">' + _this.renderLineNumbers(code) + '</td>' : '') + '\n              <td class="code">\n                <div class="container">' + html + '</div>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    ';
+		// 高亮容器
+	    html = '\n      <div class="' + classes.join(' ') + '">\n        <table border="0" cellpadding="0" cellspacing="0">\n          ' + _this.getTitleHtml(opts.title) + '\n          <tbody>\n            <tr>\n              ' + (gutter ? '<td class="gutter">' + _this.renderLineNumbers(code) + '</td>' : '') + '\n              <td class="code">\n                <ol class="container">' + html + '</ol>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    ';
 	
 	    return html;
 	  }
@@ -3326,7 +3328,7 @@ export default function(){
 	};
 
 /***/ }),
-/* 18 */ //Default config 
+/* 18 */ //Default config 默认配置
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -3381,7 +3383,7 @@ export default function(){
 	  'tab-size': 4,
 	
 	  /** Enables or disables gutter. */
-	  'gutter': true,
+	  'gutter': false,
 	
 	  /** Enables quick code copy and paste from double click. */
 	  'quick-code': true,

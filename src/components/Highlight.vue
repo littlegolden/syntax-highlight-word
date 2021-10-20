@@ -19,7 +19,12 @@
         />Ctrl + A to copy formatted code
       </span>
     </div>
-    <p><font-awesome-icon :icon="['fas', 'bug']" /> got problems? <a href="https://github.com/littlegolden/syntax-highlight-word/">report</a></p>
+    <p>
+      <font-awesome-icon :icon="['fas', 'bug']" /> got problems?
+      <a href="https://github.com/littlegolden/syntax-highlight-word/"
+        >report</a
+      >
+    </p>
     <script
       type="text/syntaxhighlighter"
       :class="`brush: ${data.lang};`"
@@ -73,6 +78,7 @@ export default {
 <style lang="less">
 @import '../assets/css/syntaxhighlighter.css';
 #result {
+  letter-spacing: normal;
   padding-top: 1rem;
   &.container {
     // font-size: 12px;
@@ -81,7 +87,7 @@ export default {
       user-select: none;
     }
   }
-  > p{
+  > p {
     user-select: none;
   }
   .options {
@@ -93,8 +99,14 @@ export default {
   .syntaxhighlighter .code .line.alt1 {
     background-color: #f8f8f8 !important;
   }
+  .syntaxhighlighter .gutter .line{
+    border-right: none;
+  }
   .code {
     letter-spacing: initial;
+    .line {
+      border-left: 3px solid #6ce26c;
+    }
   }
 }
 </style>
