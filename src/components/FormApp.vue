@@ -3,7 +3,7 @@
     <div class="container">
       <form>
         <p>Code:</p>
-        <textarea name="code" id="code" rows="15" v-model="form.code"></textarea>
+        <textarea name="code" id="code" rows="20" v-model="form.code"></textarea>
         <div class="actions">
           <div class="select">
             <p>Language:</p>
@@ -71,7 +71,7 @@ export default {
 
 <style lang="less">
 #form {
-  padding-top: 5rem;
+  padding-top: 1rem;
   form {
     max-width: 810px;
     margin-left: auto;
