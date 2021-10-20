@@ -3,8 +3,15 @@
     <div class="contact">
       <div class="container">
         <ul class="item">
-          <li class="github"><a href="//github.com/littlegolden/syntax-highlight-word">github</a></li>
-          <li class="mail"><a href="//github.com/littlegolden/syntax-highlight-word/discussions">mail</a></li>
+          <li class="github">
+            <a href="//github.com/littlegolden/syntax-highlight-word">github</a>
+          </li>
+          <li class="mail">
+            <a
+              href="//github.com/littlegolden/syntax-highlight-word/discussions"
+              >mail</a
+            >
+          </li>
         </ul>
       </div>
     </div>
@@ -38,7 +45,12 @@
     <Highlight :data="data" :key="key"></Highlight>
     <footer>
       <div class="container">
-        Page origin designed by <a href="planetb.ca">Jamie</a>
+        <p>
+          <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span> views
+          </span>
+        </p>
+        <p>Page origin designed by <a href="planetb.ca">Jamie</a></p>
       </div>
     </footer>
   </div>
@@ -155,5 +167,12 @@ footer {
   padding-bottom: 2rem;
   text-align: center;
   color: #666666;
+  p{
+    margin: 0;
+    &:first-child{
+      font-size: 12px;
+      margin: .5rem 0;
+    }
+  }
 }
 </style>
