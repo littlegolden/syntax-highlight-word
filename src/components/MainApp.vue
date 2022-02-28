@@ -64,7 +64,7 @@ export default {
   data () {
     return {
       data: {
-        code: '',
+        content: '',
         lang: ''
       },
       key: 1
@@ -78,7 +78,7 @@ export default {
     onSubmit (e) {
       // console.log('[ e ] >', e)
       this.data = {
-        code: e.code,
+        content: e.content,
         lang: e.lang
       }
       // console.log('[ this ] >', this)

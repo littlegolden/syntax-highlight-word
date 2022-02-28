@@ -3,43 +3,26 @@
     <div class="container">
       <form>
         <p>Code:</p>
-        <textarea name="code" id="code" rows="20" v-model="form.code"></textarea>
+        <textarea
+          name="content"
+          id="content"
+          rows="20"
+          v-model="form.content"
+        ></textarea>
         <div class="actions">
           <div class="select">
             <p>Language:</p>
             <select name="class" id="class" v-model="form.lang">
-              <option value="applescript">AppleScript</option>
-              <option value="as3">AS3</option>
-              <option value="bash">Bash</option>
-              <option value="coldfusion">ColdFusion</option>
-              <option value="cpp">C, C++</option>
-              <option value="csharp">C#</option>
-              <option value="css">CSS</option>
-              <option value="delphi">Delphi, Pascal</option>
-              <option value="diff">Diff</option>
-              <option value="erlang">Erlang</option>
-              <option value="groovy">Groovy</option>
-              <option value="haxe">Haxe</option>
-              <option value="html">HTML</option>
-              <option value="java">Java</option>
-              <option value="javafx">JavaFX</option>
-              <option value="javascript">Javascript</option>
-              <option value="perl">Perl</option>
-              <option value="php">PHP</option>
-              <option value="plain">Plain</option>
-              <option value="powershell">PowerShell</option>
-              <option value="python">Python</option>
-              <option value="ruby">Ruby</option>
-              <option value="sass">Sass</option>
-              <option value="scala">Scala</option>
-              <option value="sql">SQL</option>
-              <option value="tab">Tap</option>
-              <option value="typescript">TypeScript</option>
-              <option value="vb">VB</option>
-              <option value="xml">XML</option>
+              <option :value="op.id" v-for="op in options" :key="op.id">
+                {{ op.label }}
+              </option>
             </select>
           </div>
-          <input type="button" value="Show Highlighted" @click="$emit('submit', form)" />
+          <input
+            type="button"
+            value="Show Highlighted"
+            @click="$emit('submit', result)"
+          />
         </div>
       </form>
     </div>
@@ -52,10 +35,80 @@ export default {
   data () {
     return {
       form: {
-        code: '',
-        lang: 'html'
+        content: '',
+        lang: 'Xml'
       },
+      options: [
+        {
+          label: 'C, C++',
+          alias: 'cpp',
+          id: 'Cpp'
+        },
+        {
+          label: 'C#',
+          alias: 'csharp',
+          id: 'CSharp'
+        },
+        {
+          label: 'CSS',
+          alias: 'css',
+          id: 'Css'
+        },
+        {
+          label: 'Delphi, Pascal',
+          alias: 'delphi',
+          id: 'Delphi'
+        },
+        {
+          label: 'HTML, XML',
+          alias: 'xml',
+          id: 'Xml'
+        },
+        {
+          label: 'Java',
+          alias: 'java',
+          id: 'Java'
+        },
+        {
+          label: 'JavaScriot',
+          alias: 'js',
+          id: 'JScript'
+        },
+        {
+          label: 'PHP',
+          alias: 'php',
+          id: 'Php'
+        },
+        {
+          label: 'Python',
+          alias: 'py',
+          id: 'Python'
+        },
+        {
+          label: 'Ruby',
+          alias: 'rb',
+          id: 'Ruby'
+        },
+        {
+          label: 'SQL',
+          alias: 'sql',
+          id: 'Sql'
+        },
+        {
+          label: 'VB',
+          alias: 'vb',
+          id: 'Vb'
+        }
+      ],
       show: {}
+    }
+  },
+  computed: {
+    result () {
+      return {
+        lang: this.options.find(item => item.id === this.form.lang),
+        content: this.form.content
+      }
     }
   }
 }

@@ -1,10 +1,6 @@
 <template>
   <!-- <pre :class="`brush: ${lang};`" v-text="code"></pre> -->
-  <div
-    id="result"
-    :class="'container'"
-    v-show="data.code"
-  >
+  <div ref="result" id="result" :class="'container'" v-show="data.content">
     <div class="options">
       <span>
         <font-awesome-icon
@@ -20,13 +16,13 @@
         >
       </p>
     </div>
-    <script
-      type="text/syntaxhighlighter"
-      :class="`brush: ${data.lang};`"
-      auto-links="true"
+    <!-- 格式化 -->
+    <pre
+      name="code"
+      :class="data.lang.alias + ':nocontrols'"
+      style="display:none;"
+      >{{ data.content }}</pre
     >
-      <![CDATA[{{data.code}}]]>
-    </script>
     <div
       class="msg"
       v-show="msg"
@@ -42,7 +38,8 @@ export default {
   name: 'Highlight',
   data () {
     return {
-      msg: ''
+      msg: '',
+      showPlainText: false
     }
   },
   mounted () {
@@ -50,19 +47,58 @@ export default {
       this.msg = `${msg}`
     }
     // https://www.cnblogs.com/Use-left-hand-write-love/archive/2011/04/15/2017399.html
-    window.code.onkeydown = function (event) {
+    window.content.onkeydown = function (event) {
       event.stopPropagation()
     }
-    window.addEventListener('keydown', function (event) {
+    // window.addEventListener('keydown', event => {
+    //   if (event.ctrlKey && window.event.keyCode === 65 && !this.showPlainText) {
+    //     console.log('ddd')
+    //     event.preventDefault()
+    //     const result = document.querySelector('#result')
+    //     window.getSelection().selectAllChildren(result)
+    //   }
+    // })
+    window.onkeydown = event => {
       if (event.ctrlKey && window.event.keyCode === 65) {
         event.preventDefault()
-        const result = document.querySelector('#result')
-        window.getSelection().selectAllChildren(result)
+        if (!this.showPlainText) {
+          let target = document.querySelector('#result')
+          window.getSelection().selectAllChildren(target)
+        } else {
+          document.querySelector('textarea.plain').focus({
+            preventScroll: true
+          })
+          document.querySelector('textarea.plain').select()
+        }
       }
-    })
-    // console.log('[ this.$shl ] >', this.$shl)
-    if (this.data.code) {
-      this.$shl()
+    }
+    if (this.data.content) {
+      // ;(() => import(`../assets/js/shBrush${this.data.lang}`))()
+      import(`../assets/js/shBrush${this.data.lang.id}`).then(() => {
+        this.$dp.SyntaxHighlighter.HighlightAll('code')
+        let dp = this.$refs.result.querySelector('.dp-highlighter')
+        // console.log('dp', dp)
+        dp.ondblclick = e => {
+          this.showPlainText = true
+          let source = document.createElement('textarea')
+          source.value = dp.highlighter.source.innerText
+          source.className = 'plain'
+          source.readOnly = true
+
+          dp.querySelector('ol').appendChild(source)
+
+          this.$nextTick(() => {
+            source.focus({
+              preventScroll: true
+            })
+            source.select()
+            source.onblur = () => {
+              this.showPlainText = false
+              dp.querySelector('ol').removeChild(source)
+            }
+          })
+        }
+      })
     }
   },
   props: ['data']
@@ -91,12 +127,6 @@ export default {
     user-select: none;
     color: #666;
   }
-  .syntaxhighlighter .code .line.alt1 {
-    background-color: #f8f8f8 !important;
-  }
-  .syntaxhighlighter .gutter .line {
-    border-right: none;
-  }
   .code {
     letter-spacing: initial;
     .line {
@@ -106,6 +136,30 @@ export default {
   }
   ol {
     margin: 0;
+    position: relative;
+  }
+  .dp-highlighter {
+    background-color: #f8f8f8 !important;
+  }
+  .dp-highlighter ol li {
+    padding-left: 0 !important;
+  }
+  textarea.plain {
+    font-size: 1em !important;
+    line-height: 1.1em !important;
+    border: none;
+    outline: none;
+    width: calc(100% + 45px);
+    height: 100%;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -45px;
+    font-family: Consolas, Bitstream Vera Sans Mono, Courier New, Courier,
+      monospace !important;
+    white-space: pre !important;
+    min-height: auto !important;
   }
 }
 </style>

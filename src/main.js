@@ -10,14 +10,15 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import SyntaxHighlighter from './assets/js/syntaxhighlighter'
+import shCore from './assets/js/shCore'
 
 // Font Awesome
 library.add(fas)
 library.add(far)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-Vue.prototype.$shl = SyntaxHighlighter
+Vue.prototype.$dp = shCore
+window.dp = shCore
 
 Vue.config.productionTip = false
 
