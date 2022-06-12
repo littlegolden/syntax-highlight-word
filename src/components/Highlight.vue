@@ -92,7 +92,7 @@ export default {
     color: #666;
   }
   .syntaxhighlighter .code .line.alt1 {
-    background-color: #f8f8f8 !important;
+    background-color: #f8f8f8;
   }
   .syntaxhighlighter .gutter .line {
     border-right: none;
