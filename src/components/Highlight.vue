@@ -50,7 +50,7 @@ export default {
       this.msg = `${msg}`
     }
     // https://www.cnblogs.com/Use-left-hand-write-love/archive/2011/04/15/2017399.html
-    window.code.onkeydown = function (event) {
+    document.getElementsByName('code')[0].onkeydown = function (event) {
       event.stopPropagation()
     }
     window.addEventListener('keydown', function (event) {
